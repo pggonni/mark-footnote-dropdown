@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Footnote Dropdown</title>
+    <link rel="stylesheet" href="./app.css">
+
+    <!-- This is a link to deliver TailwindCSS from CDN. I am using it for easier x-transitions, you can just set regular css classes or omit the transitions all together. -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- This is the link to deliver AlpineJS from CDN. This is required for the dropdown to work-->
+    <!-- Any attributes that begin with "x-" are Alpine directives -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div class="small-container">
+        <!-- Define the state of the dropdown by passing an object in x-data -->
+        <!-- The scope of x-data only encompasses the div in which it is passed (and, by extension, its children) -->
+        <div x-data="{ isOpen: false }">
+            <p>This is a paragraph with some text in it. If you want to put a footnote at the end, you'll have to wrap everything in a div. The style doesn't really matter, I just did that for the look.
+                
+                <!-- The superscript that opens the div. It will be hidden when the div is open -->
+                <!-- x-on:click sets up an event listener. When the <sup> is clicked, isOpen is set to true -->
+                <!-- x-show hides the element it is passed on, unless a specific condition is met. In this case only show when "isOpen === false" -->
+                <sup class="footnote-link" x-on:click="isOpen = true" x-show="isOpen === false">1</sup>
+    
+                <!-- The superscript that closes the div. It will only show when the div is open -->
+                <sup class="footnote-link" x-on:click="isOpen = false" x-show="isOpen === true">&times;</sup>
+    
+            </p>
+            <p 
+                class="footnote" 
+                x-show="isOpen === true"
+                x-transition:enter="transition ease-out duration-150"
+                x-transition:enter-start="opacity-0 transform -translate-y-2"
+                x-transition:enter-end="opacity-100 transform translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 transform translate-y-0"
+                x-transition:leave-end="opacity-0 transform -translate-y-2"
+            >
+                This is the text you want to show and hide.
+            </p>
+        </div>
+        <p>This is another paragraph after the footnote dropdown.</p>
+    </div>
+</body>
+</html>
