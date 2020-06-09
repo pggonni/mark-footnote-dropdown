@@ -56,7 +56,28 @@
                 x-transition:leave-end="enter-start"
                 >
                     I a note!
-            </span>
+                </span>
+                You'll have to wrap the footnote in a span within the paragraph.
+            </p>
+        </div>
+        <div x-data="{ isOpen: false }">
+            <p>This is a paragraph with a footnote mid sentence, tooltip style. 
+                <span class="tooltip-container">
+                    <sup x-on:click="isOpen = true" x-show="isOpen === false">2</sup>
+                    <sup x-on:click="isOpen = false" x-show="isOpen === true">&times;</sup> 
+                    <span 
+                    class="footnote tooltip" 
+                    x-show="isOpen === true"
+                    x-transition:enter="transition-enter"
+                    x-transition:enter-start="enter-start"
+                    x-transition:enter-end="enter-end"
+                    x-transition:leave="transition-leave"
+                    x-transition:leave-start="enter-end"
+                    x-transition:leave-end="enter-start"
+                    >
+                        I'm a tooltip style note!
+                    </span>
+                </span>
                 You'll have to wrap the footnote in a span within the paragraph.
             </p>
         </div>
