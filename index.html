@@ -21,10 +21,10 @@
                 <!-- The superscript that opens the div. It will be hidden when the div is open -->
                 <!-- x-on:click sets up an event listener. When the <sup> is clicked, isOpen is set to true -->
                 <!-- x-show hides the element it is passed on, unless a specific condition is met. In this case only show when "isOpen === false" -->
-                <sup class="footnote-link" x-on:click="isOpen = true" x-show="isOpen === false">1</sup>
+                <sup x-on:click="isOpen = true" x-show="isOpen === false">1</sup>
     
                 <!-- The superscript that closes the div. It will only show when the div is open -->
-                <sup class="footnote-link" x-on:click="isOpen = false" x-show="isOpen === true">&times;</sup>
+                <sup x-on:click="isOpen = false" x-show="isOpen === true">&times;</sup>
     
             </p>
             <p 

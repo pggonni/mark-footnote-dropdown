@@ -5,7 +5,7 @@ p {
     max-width: 400px;
     margin: auto;
 }
-.footnote-link {
+sup {
   color: teal;
   font-size: 12px;
   cursor: pointer;
