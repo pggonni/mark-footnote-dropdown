@@ -7,17 +7,32 @@ p {
 .small-container {
     max-width: 400px;
     margin: auto;
-  }
-  .footnote-link {
-    color: teal;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  .footnote {
-    display: inline-block;
-    padding: 8px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    font-family: monospace;
-    margin-top: 4px;
-  }
+}
+.footnote-link {
+  color: teal;
+  font-size: 12px;
+  cursor: pointer;
+}
+.footnote {
+  display: inline-block;
+  padding: 8px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  font-family: monospace;
+  margin-top: 4px;
+}
+.transition-enter {
+  transition: ease-out 150ms;
+}
+.transition-leave {
+  transition: ease-in 150ms;
+}
+.enter-start {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+.enter-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+  
