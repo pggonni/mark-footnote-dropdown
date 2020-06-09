@@ -41,6 +41,25 @@
             </p>
         </div>
         <p>This is another paragraph after the footnote dropdown.</p>
+        <div x-data="{ isOpen: false }">
+            <p>This is a paragraph with a footnote mid sentence. 
+                <sup x-on:click="isOpen = true" x-show="isOpen === false">2</sup>
+                <sup x-on:click="isOpen = false" x-show="isOpen === true">&times;</sup> 
+                <span 
+                class="footnote" 
+                x-show="isOpen === true"
+                x-transition:enter="transition-enter"
+                x-transition:enter-start="enter-start"
+                x-transition:enter-end="enter-end"
+                x-transition:leave="transition-leave"
+                x-transition:leave-start="enter-end"
+                x-transition:leave-end="enter-start"
+                >
+                    I a note!
+            </span>
+                You'll have to wrap the footnote in a span within the paragraph.
+            </p>
+        </div>
     </div>
 </body>
 </html>
